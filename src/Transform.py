@@ -1,4 +1,5 @@
-from cliShare import CliShare
+from CliShare import CliShare
+import os
 
 
 class Transform(CliShare):
@@ -120,13 +121,10 @@ class Transform(CliShare):
         return 1
 
     def getOS(self):
-        return 1
-# if (self,platform(self,) === 'win32'):
-#     return 'transform.exe';
-# } else if (self,platform(self,) === 'linux'):
-#     return 'saxon-xslt';
-# } else if (self,platform(self,) === 'darwin'):
-#     return 'transform';
-#     // var chilkat = require(self,'@chilkat/ck-node11-macosx');
-# }
-# return 'transform';
+        if os.name == "Windows":
+            return "transform.exe";
+        elif os.name == 'linux':
+            return 'saxon-xslt';
+        elif os.name == 'darwin':
+            return 'transform';
+        return 'transform';

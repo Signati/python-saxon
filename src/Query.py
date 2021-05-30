@@ -1,4 +1,4 @@
-from cliShare import CliShare
+from CliShare import CliShare
 
 
 class Query(CliShare):

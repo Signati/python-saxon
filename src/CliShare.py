@@ -7,7 +7,7 @@ class CliShare:
         self.commandline = '';
         self.commandlineArray = [];
         self.saxonBin = '';
-        self.commandline = self.saxonBin();
+        self.commandline = self.saxonBin;
 
     def catalog(self, filenames: any):
         self.commandline += " -catalog " + filenames;
@@ -211,16 +211,11 @@ class CliShare:
         return self;
 
     def run(self):
-        command = subprocess.run(['ls', '-l'], capture_output=True)
-
-        sys.stdout.buffer.write(command.stdout)
-        sys.stderr.buffer.write(command.stderr)
-        sys.exit(command.returncode)
-
-        # try:
-        #     const saxonProc = commandSync(self,self.commandline).stdout;
-        #     return saxonProc;
-        # } catch (self,e):
-        #     throw new Error(self,e.message);
-        #
-        # }
+        try:
+            command = subprocess.run(self.commandlineArray, capture_output=True)
+            print(command)
+            sys.stdout.buffer.write(command.stdout)
+            sys.stderr.buffer.write(command.stderr)
+            sys.exit(command.returncode)
+        except Exception as e:
+            return e
