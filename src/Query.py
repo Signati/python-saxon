@@ -9,44 +9,48 @@ class Query(CliShare):
         self.saxonBin = self.getOS();
         self.commandline = self.saxonBin
 
-    def backup(self, options: 'on' | 'off'):
-        self.commandline += " -a:${options}";
-        self.commandlineArray.append("-a:${options}");
+    # 'on' | 'off'
+    def backup(self, options):
+        self.commandline += " -a:" + options;
+        self.commandlineArray.append("-a:" + options);
         return self;
 
-    def config(self, filenames: any):
-        self.commandline += " -config:${filenames}";
-        self.commandlineArray.append("-config:${filenames}");
+    def config(self, filenames):
+        self.commandline += " -config:" + filenames;
+        self.commandlineArray.append("-config:" + filenames);
         return self;
 
-    def mr(self, classname: any):
-        self.commandline += " -mr:${classname}";
-        self.commandlineArray.append("-mr:${classname}");
+    def mr(self, classname):
+        self.commandline += " -mr:" + classname;
+        self.commandlineArray.append("-mr:" + classname);
         return self;
 
-    def projection(self, options: 'on' | 'off'):
-        self.commandline += " -projection:${options}";
-        self.commandlineArray.append("-projection:${options}");
+    #  'on' | 'off'
+    def projection(self, options):
+        self.commandline += " -projection:" + options;
+        self.commandlineArray.append("-projection:" + options);
         return self;
 
-    def q(self, queryfile: any):
-        self.commandline += " -q:${queryfile}";
-        self.commandlineArray.append("-q:${queryfile}");
+    def q(self, queryfile):
+        self.commandline += " -q:" + queryfile;
+        self.commandlineArray.append("-q:" + queryfile);
         return self;
 
-    def qs(self, querystring: any):
-        self.commandline += " -qs:${querystring}";
-        self.commandlineArray.append("-qs:${querystring}");
+    def qs(self, querystring):
+        self.commandline += " -qs:" + querystring;
+        self.commandlineArray.append("-qs:" + querystring);
         return self;
 
-    def stream(self, options: 'on' | 'off'):
-        self.commandline += " -stream:${options}";
-        self.commandlineArray.append("-stream:${options}");
+    # 'on' | 'off'
+    def stream(self, options):
+        self.commandline += " -stream:" + options;
+        self.commandlineArray.append("-stream:" + options);
         return self;
 
-    def update(self, options: 'on' | 'off' | 'discard'):
-        self.commandline += " -update:${options}";
-        self.commandlineArray.append("-update:${options}");
+    # 'on' | 'off' | 'discard'
+    def update(self, options):
+        self.commandline += " -update:" + options;
+        self.commandlineArray.append("-update:" + options);
         return self;
 
     def wrap(self):
