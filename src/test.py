@@ -9,7 +9,7 @@ class MyTestCase(unittest.TestCase):
         stylesheetDir = "/home/misael/Documentos/misproyectos/node/core/src/signati/resources/xslt33/cadenaoriginal_3_3.xslt";
         transform = Transform();
         cadena = transform.s(fullPath).xsl(stylesheetDir).warnings('silent').run();
-        print(transform.commandline)
+        # print(transform.commandline)
         print(cadena)
 
 

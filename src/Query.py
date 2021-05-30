@@ -8,6 +8,7 @@ class Query(CliShare):
         self.commandlineArray = [];
         self.saxonBin = '';
         self.saxonBin = self.getOS();
+        self.commandlineArray.append(self.saxonBin)
         self.commandline = self.saxonBin
 
     # 'on' | 'off'

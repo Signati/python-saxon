@@ -8,6 +8,7 @@ class CliShare:
         self.commandline = '';
         self.commandlineArray = [];
         self.saxonBin = '';
+        self.commandlineArray.append(self.saxonBin)
         self.commandline = self.saxonBin;
 
     def catalog(self, filenames: any):
@@ -213,12 +214,12 @@ class CliShare:
 
     def run(self):
         try:
-            command = os.system(self.commandline)
-            print(command)
-            # command = subprocess.run(self.commandlineArray, capture_output=True)
-            # print(command)
+            # command = os.system(self.commandline)
+            # print(self.commandlineArray)
+            command = subprocess.run(self.commandlineArray, stderr=False, stdout=subprocess.PIPE).stdout.decode('utf-8')
             # sys.stdout.buffer.write(command.stdout)
             # sys.stderr.buffer.write(command.stderr)
             # sys.exit(command.returncode)
+            return command
         except Exception as e:
             return e

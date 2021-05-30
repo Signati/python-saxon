@@ -1,6 +1,6 @@
 from CliShare import CliShare
 import sys
-
+import subprocess
 
 class Transform(CliShare):
     def __init__(self):
@@ -8,6 +8,7 @@ class Transform(CliShare):
         self.commandlineArray = [];
         self.saxonBin = '';
         self.saxonBin = self.getOS();
+        self.commandlineArray.append(self.saxonBin)
         self.commandline = self.saxonBin
 
     # 'on' | 'off'
