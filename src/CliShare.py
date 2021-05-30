@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import os
 
 
 class CliShare:
@@ -212,10 +213,12 @@ class CliShare:
 
     def run(self):
         try:
-            command = subprocess.run(self.commandlineArray, capture_output=True)
+            command = os.system(self.commandline)
             print(command)
-            sys.stdout.buffer.write(command.stdout)
-            sys.stderr.buffer.write(command.stderr)
-            sys.exit(command.returncode)
+            # command = subprocess.run(self.commandlineArray, capture_output=True)
+            # print(command)
+            # sys.stdout.buffer.write(command.stdout)
+            # sys.stderr.buffer.write(command.stderr)
+            # sys.exit(command.returncode)
         except Exception as e:
             return e

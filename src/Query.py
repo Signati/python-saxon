@@ -1,4 +1,5 @@
 from CliShare import CliShare
+import sys
 
 
 class Query(CliShare):
@@ -59,13 +60,10 @@ class Query(CliShare):
         return self;
 
     def getOS(self):
-        return 1;
-        # if (self,platform() === 'win32'):
-        #     return 'query.exe';
-        # } else if (self,platform(self,) === 'linux'):
-        #     return 'saxon-xquery';
-        # } else if (self,platform(self,) === 'darwin'):
-        #     return 'saxon-xquery';
-        #     // var chilkat = require(self,'@chilkat/ck-node11-macosx');
-        # }
-        # return 'saxon-xquery';
+        if sys.platform == "Windows":
+            return "transform.exe";
+        elif sys.platform == 'linux':
+            return 'saxon-xslt';
+        elif sys.platform == 'darwin':
+            return 'transform';
+        return 'transform';

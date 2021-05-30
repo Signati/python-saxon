@@ -1,5 +1,5 @@
 from CliShare import CliShare
-import os
+import sys
 
 
 class Transform(CliShare):
@@ -121,10 +121,10 @@ class Transform(CliShare):
         return 1
 
     def getOS(self):
-        if os.name == "Windows":
+        if sys.platform == "Windows":
             return "transform.exe";
-        elif os.name == 'linux':
+        elif sys.platform == 'linux':
             return 'saxon-xslt';
-        elif os.name == 'darwin':
+        elif sys.platform == 'darwin':
             return 'transform';
         return 'transform';
